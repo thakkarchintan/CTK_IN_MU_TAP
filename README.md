@@ -1,8 +1,8 @@
-# V1 Trading Platform
+# V1 Trading Platform (CTK_IN_MU_TAP)
 
-Modular-monolith trading platform: FastAPI + PostgreSQL backend, React + TypeScript frontend, pluggable
-broker layer (Zerodha Kite Connect first). See `Build Log` in the app UI for a running record of what has
-been built at each step.
+Trading app with MU learners. Modular-monolith: FastAPI + PostgreSQL backend, React + TypeScript frontend,
+pluggable broker layer (Zerodha Kite Connect first). See `Build Log` in the app UI for a running record of
+what has been built at each step.
 
 ## Running in GitHub Codespaces (no local Docker required)
 
