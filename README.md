@@ -4,14 +4,24 @@ Modular-monolith trading platform: FastAPI + PostgreSQL backend, React + TypeScr
 broker layer (Zerodha Kite Connect first). See `Build Log` in the app UI for a running record of what has
 been built at each step.
 
-## Prerequisites
+## Running in GitHub Codespaces (no local Docker required)
 
-- Docker Desktop (with WSL2 backend on Windows)
+This repo includes a `.devcontainer/devcontainer.json` that runs the same `docker-compose.yml` stack
+inside a cloud dev container.
 
-## Running locally
+1. On github.com, open this repo → **Code** → **Codespaces** → **Create codespace on main**.
+2. Wait for the container build to finish (first run takes a few minutes).
+3. VS Code (in the browser) opens with Postgres, backend, and frontend already running. The **Ports** tab
+   forwards 8000 (backend API) and 5173 (frontend) — open the 5173 forwarded URL to use the app.
+4. Log in with the seeded admin user: `admin@example.com` / `changeme123` (these are dev-only defaults
+   with no `.env` present; see below to override).
+5. To use real Zerodha credentials, create a `.env` file at the repo root inside the Codespace (it's
+   gitignored — it never leaves that Codespace unless you explicitly commit it) with `KITE_API_KEY`,
+   `KITE_API_SECRET`, `KITE_ACCESS_TOKEN`, then rebuild/restart the backend service.
 
-1. Copy `.env.example` to `.env` if you haven't already, and fill in real values (a dev `.env` with
-   placeholder auth values is already included for local use — do not reuse it anywhere real).
+## Running locally (if Docker Desktop is available)
+
+1. Copy `.env.example` to `.env` if you haven't already, and fill in real values.
 2. From the repo root:
 
    ```bash

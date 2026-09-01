@@ -19,10 +19,14 @@ services:
   backend:
     build: ./backend
     restart: unless-stopped
-    env_file:
-      - .env
     environment:
       DATABASE_URL: postgresql+psycopg2://trading:trading@db:5432/trading
+      SECRET_KEY: ${SECRET_KEY:-dev-only-secret-change-before-any-real-use}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-admin@example.com}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-changeme123}
+      KITE_API_KEY: ${KITE_API_KEY:-}
+      KITE_API_SECRET: ${KITE_API_SECRET:-}
+      KITE_ACCESS_TOKEN: ${KITE_ACCESS_TOKEN:-}
     volumes:
       - ./backend:/app
     ports:
