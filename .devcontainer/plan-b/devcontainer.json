@@ -1,0 +1,19 @@
+{
+  "name": "V1 Trading Platform (Plan B - no Docker, cloud Postgres)",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": { "version": "20" }
+  },
+  "workspaceFolder": "/workspaces/CTK_IN_MU_TAP",
+  "forwardPorts": [8000, 5173],
+  "portsAttributes": {
+    "8000": { "label": "Backend API", "onAutoForward": "notify" },
+    "5173": { "label": "Frontend", "onAutoForward": "openPreview" }
+  },
+  "postCreateCommand": "pip install -r backend/requirements.txt && npm install --prefix frontend",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python", "esbenp.prettier-vscode", "dbaeumer.vscode-eslint"]
+    }
+  }
+}
